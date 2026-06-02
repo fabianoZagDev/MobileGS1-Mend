@@ -1,0 +1,41 @@
+import React from 'react';
+import { View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { useFonts, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import { Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import { ThemeProvider, useTheme } from './src/contexts/ThemeContext';
+import { FavoritesProvider } from './src/contexts/FavoritesContext';
+import { AppNavigator } from './src/navigation/AppNavigator';
+import { LoadingScreen } from './src/components/LoadingScreen';
+
+function Root() {
+  const { isDark, colors } = useTheme();
+  return (
+    <>
+      <StatusBar style={isDark ? 'light' : 'dark'} backgroundColor={colors.statusBar} />
+      <AppNavigator />
+    </>
+  );
+}
+
+export default function App() {
+  const [fontsLoaded] = useFonts({
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+  });
+
+  return (
+    <ThemeProvider>
+      <FavoritesProvider>
+        {fontsLoaded ? (
+          <Root />
+        ) : (
+          <View style={{ flex: 1, backgroundColor: '#000000' }} />
+        )}
+      </FavoritesProvider>
+    </ThemeProvider>
+  );
+}
