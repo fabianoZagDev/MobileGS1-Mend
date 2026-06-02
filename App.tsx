@@ -1,7 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { useFonts, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import { useFonts, SpaceGrotesk_500Medium, SpaceGrotesk_700Bold } from '@expo-google-fonts/space-grotesk';
+import { JetBrainsMono_400Regular, JetBrainsMono_500Medium, JetBrainsMono_700Bold } from '@expo-google-fonts/jetbrains-mono';
 import { Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import { ThemeProvider, useTheme } from './src/contexts/ThemeContext';
 import { FavoritesProvider } from './src/contexts/FavoritesContext';
@@ -20,8 +21,11 @@ function Root() {
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    Poppins_600SemiBold,
-    Poppins_700Bold,
+    SpaceGrotesk_500Medium,
+    SpaceGrotesk_700Bold,
+    JetBrainsMono_400Regular,
+    JetBrainsMono_500Medium,
+    JetBrainsMono_700Bold,
     Roboto_400Regular,
     Roboto_500Medium,
     Roboto_700Bold,

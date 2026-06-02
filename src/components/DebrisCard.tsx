@@ -98,7 +98,7 @@ function InfoChip({
 const chipStyles = StyleSheet.create({
   chip: { alignItems: 'center', flex: 1 },
   label: { ...typography.caption, marginTop: 3 },
-  value: { ...typography.bodySmall, fontFamily: typography.bodyMedium.fontFamily, marginTop: 1 },
+  value: { ...typography.monoMedium, marginTop: 2 },
 });
 
 const styles = StyleSheet.create({
@@ -115,11 +115,11 @@ const styles = StyleSheet.create({
   nameRow: { flexDirection: 'row', alignItems: 'center', flex: 1, marginRight: 8 },
   name: { ...typography.h4, flex: 0, marginRight: 8 },
   typeBadge: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 8 },
-  typeText: { ...typography.caption },
+  typeText: { ...typography.monoSmall, fontSize: 10 },
   stats: { flexDirection: 'row', marginBottom: 14 },
   footer: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   riskBadge: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 9, paddingVertical: 4, borderRadius: 8 },
   riskDot: { width: 6, height: 6, borderRadius: 3, marginRight: 5 },
   riskText: { ...typography.label },
-  meta: { ...typography.caption },
+  meta: { ...typography.monoSmall },
 });

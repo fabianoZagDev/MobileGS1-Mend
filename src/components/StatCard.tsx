@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 12,
   },
-  value: { ...typography.h2, marginBottom: 2 },
+  value: { ...typography.monoLarge, marginBottom: 3 },
   label: { ...typography.caption },
   subtitle: { ...typography.caption, marginTop: 4 },
 });

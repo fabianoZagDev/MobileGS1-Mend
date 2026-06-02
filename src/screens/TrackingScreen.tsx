@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   container: { flex: 1 },
   header: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', paddingHorizontal: 16, paddingTop: 8, paddingBottom: 14 },
   title: { ...typography.h2 },
-  count: { ...typography.bodySmall, marginBottom: 3 },
+  count: { ...typography.monoSmall, marginBottom: 3 },
   searchBox: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 14, marginHorizontal: 16, paddingHorizontal: 14, paddingVertical: 11, marginBottom: 12 },
   searchInput: { flex: 1, ...typography.body, marginLeft: 8 },
   filterRow: { flexDirection: 'row', paddingHorizontal: 12, marginBottom: 10, flexWrap: 'wrap' },

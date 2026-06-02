@@ -108,8 +108,8 @@ export function HomeScreen() {
 function AboutStat({ label, value, colors }: { label: string; value: string; colors: any }) {
   return (
     <View style={{ alignItems: 'center', flex: 1 }}>
-      <Text style={{ ...typography.h4, color: colors.text }}>{value}</Text>
-      <Text style={{ ...typography.caption, color: colors.textMuted, textAlign: 'center', marginTop: 2 }}>{label}</Text>
+      <Text style={{ ...typography.monoMedium, fontSize: 15, color: colors.text }}>{value}</Text>
+      <Text style={{ ...typography.caption, color: colors.textMuted, textAlign: 'center', marginTop: 3 }}>{label}</Text>
     </View>
   );
 }

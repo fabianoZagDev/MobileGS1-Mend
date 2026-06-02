@@ -83,7 +83,7 @@ export function MissionsScreen() {
 function MiniStat({ label, value, colors, accent }: { label: string; value: string; colors: any; accent?: string }) {
   return (
     <View style={{ flex: 1, alignItems: 'center' }}>
-      <Text style={{ ...typography.h3, color: accent ?? colors.text }}>{value}</Text>
+      <Text style={{ ...typography.monoLarge, fontSize: 18, color: accent ?? colors.text }}>{value}</Text>
       <Text style={{ ...typography.caption, color: colors.textMuted, marginTop: 2 }}>{label}</Text>
     </View>
   );
