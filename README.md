@@ -231,8 +231,6 @@ Escaneie o QR code com o app **Expo Go** no seu celular.
 |:------:|:------------:|:-------:|:-------------:|
 | <img src="assets/prints_tela/inicio.png" width="200"/> | <img src="assets/prints_tela/rastreamento.png" width="200"/> | <img src="assets/prints_tela/missoes.png" width="200"/> | <img src="assets/prints_tela/configuracoes.png" width="200"/> |
 
-🎥 **Pitch / demo em vídeo:** [assista aqui](LINK-DO-PITCH-AQUI)
-
 ---
 
 ## 👥 Integrantes
