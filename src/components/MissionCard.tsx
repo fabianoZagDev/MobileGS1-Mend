@@ -37,8 +37,9 @@ export function MissionCard({ mission }: Props) {
   return (
     <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
       <View style={styles.header}>
-        <View style={[styles.iconWrap, { backgroundColor: colors.primary + '1f' }]}>
-          <Ionicons name={getMethodIcon(mission.method)} size={20} color={colors.primary} />
+        <View style={styles.iconRow}>
+          <View style={[styles.accentBar, { backgroundColor: colors.primary }]} />
+          <Ionicons name={getMethodIcon(mission.method)} size={22} color={colors.primary} />
         </View>
         <View style={styles.info}>
           <Text style={[styles.target, { color: colors.text }]} numberOfLines={1}>
@@ -78,13 +79,16 @@ export function MissionCard({ mission }: Props) {
 const styles = StyleSheet.create({
   card: { borderRadius: 10, borderWidth: 1, padding: 16, marginBottom: 12 },
   header: { flexDirection: 'row', alignItems: 'center', marginBottom: 14 },
-  iconWrap: {
-    width: 40,
-    height: 40,
-    borderRadius: 8,
+  iconRow: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
     marginRight: 12,
+  },
+  accentBar: {
+    width: 3,
+    height: 22,
+    borderRadius: 2,
+    marginRight: 10,
   },
   info: { flex: 1, marginRight: 8 },
   target: { ...typography.h4, marginBottom: 2 },

@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';
 import { MissionCard } from '../components/MissionCard';
+import { AppHeader } from '../components/AppHeader';
 import { getMendMissions } from '../services/debrisService';
 import { typography } from '../theme/typography';
 
@@ -32,12 +33,13 @@ export function MissionsScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
-      <View style={[styles.header, { backgroundColor: colors.header }]}>
-        <Text style={[styles.title, { color: colors.onPrimary }]}>Missões</Text>
-        <Text style={[styles.subtitle, { color: 'rgba(255,255,255,0.8)' }]}>Operações de remoção orbital</Text>
-      </View>
+      <AppHeader />
 
       <View style={[styles.body, { backgroundColor: colors.background }]}>
+      <View style={styles.pageTitleRow}>
+        <Text style={[styles.title, { color: colors.text }]}>Missões</Text>
+        <Text style={[styles.subtitle, { color: colors.textMuted }]}>Operações de remoção orbital</Text>
+      </View>
       <View style={[styles.statsBar, { backgroundColor: colors.surface, borderColor: colors.border }]}>
         <MiniStat label="Total" value={stats.total.toString()} colors={colors} />
         <View style={[styles.divider, { backgroundColor: colors.border }]} />
@@ -94,10 +96,10 @@ function MiniStat({ label, value, colors, accent }: { label: string; value: stri
 const styles = StyleSheet.create({
   container: { flex: 1 },
   body: { flex: 1 },
-  header: { paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
+  pageTitleRow: { paddingHorizontal: 20, paddingTop: 20, paddingBottom: 4 },
   title: { ...typography.h2 },
   subtitle: { ...typography.bodySmall, marginTop: 3 },
-  statsBar: { flexDirection: 'row', marginHorizontal: 20, borderRadius: 8, borderWidth: 1, paddingVertical: 18, marginTop: 20, marginBottom: 20 },
+  statsBar: { flexDirection: 'row', marginHorizontal: 20, borderRadius: 8, borderWidth: 1, paddingVertical: 18, marginTop: 16, marginBottom: 20 },
   divider: { width: 1, marginVertical: 4 },
   filterRow: { flexDirection: 'row', paddingHorizontal: 16, marginBottom: 16, flexWrap: 'wrap' },
   filterChip: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 8, margin: 4 },

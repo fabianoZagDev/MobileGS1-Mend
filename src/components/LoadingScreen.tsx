@@ -12,7 +12,9 @@ export function LoadingScreen({ message = 'Conectando à NASA API' }: Props) {
   const { colors } = useTheme();
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <Logo height={48} />
+      <View style={[styles.plaque, { backgroundColor: colors.header }]}>
+        <Logo height={42} />
+      </View>
       <ActivityIndicator size="small" color={colors.primary} style={styles.spinner} />
       <Text style={[styles.message, { color: colors.textMuted }]}>{message}</Text>
     </View>
@@ -21,6 +23,7 @@ export function LoadingScreen({ message = 'Conectando à NASA API' }: Props) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  plaque: { paddingHorizontal: 22, paddingVertical: 16, borderRadius: 10 },
   spinner: { marginTop: 32, marginBottom: 16 },
   message: { ...typography.caption, letterSpacing: 0.5 },
 });

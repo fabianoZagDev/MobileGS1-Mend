@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';
 import { useFavorites } from '../contexts/FavoritesContext';
 import { DebrisCard } from '../components/DebrisCard';
+import { AppHeader } from '../components/AppHeader';
 import { typography } from '../theme/typography';
 
 export function FavoritesScreen() {
@@ -20,17 +21,18 @@ export function FavoritesScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
-      <View style={[styles.header, { backgroundColor: colors.header }]}>
-        <Text style={[styles.title, { color: colors.onPrimary }]}>Favoritos</Text>
-        {favorites.length > 0 && (
-          <TouchableOpacity onPress={clearAll} style={styles.clearBtn}>
-            <Ionicons name="trash-outline" size={16} color={colors.onPrimary} />
-            <Text style={[styles.clearText, { color: colors.onPrimary }]}>Limpar</Text>
-          </TouchableOpacity>
-        )}
-      </View>
+      <AppHeader />
 
       <View style={[styles.body, { backgroundColor: colors.background }]}>
+        <View style={styles.pageTitleRow}>
+          <Text style={[styles.title, { color: colors.text }]}>Favoritos</Text>
+          {favorites.length > 0 && (
+            <TouchableOpacity onPress={clearAll} style={styles.clearBtn}>
+              <Ionicons name="trash-outline" size={16} color={colors.primary} />
+              <Text style={[styles.clearText, { color: colors.primary }]}>Limpar</Text>
+            </TouchableOpacity>
+          )}
+        </View>
         {favorites.length > 0 && (
           <View style={[styles.countBadge, { backgroundColor: colors.primary + '14', borderColor: colors.primary + '33' }]}>
             <Ionicons name="star" size={15} color={colors.primary} />
@@ -64,11 +66,11 @@ export function FavoritesScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   body: { flex: 1 },
-  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
+  pageTitleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 20, paddingBottom: 4 },
   title: { ...typography.h2 },
   clearBtn: { flexDirection: 'row', alignItems: 'center' },
   clearText: { ...typography.bodyMedium, marginLeft: 5 },
-  countBadge: { flexDirection: 'row', alignItems: 'center', marginHorizontal: 20, borderRadius: 10, borderWidth: 1, paddingVertical: 10, paddingHorizontal: 14, marginTop: 18, marginBottom: 4 },
+  countBadge: { flexDirection: 'row', alignItems: 'center', marginHorizontal: 20, borderRadius: 10, borderWidth: 1, paddingVertical: 10, paddingHorizontal: 14, marginTop: 14, marginBottom: 4 },
   countText: { ...typography.bodyMedium, marginLeft: 7 },
   list: { paddingHorizontal: 20, paddingTop: 14, paddingBottom: 36 },
   empty: { alignItems: 'center', paddingTop: 80, paddingHorizontal: 32 },

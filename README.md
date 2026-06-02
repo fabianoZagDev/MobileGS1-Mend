@@ -187,19 +187,53 @@ Escaneie o QR code com o app **Expo Go** no seu celular.
 
 ---
 
-## 🏆 Critérios de Avaliação
+## ✅ Requisitos Obrigatórios — Comprovação
 
-| Critério | Implementação |
-|----------|--------------|
-| ✅ Estrutura e Organização | `src/` com 8 módulos separados |
-| ✅ React Native + TypeScript | 100% tipado |
-| ✅ Navegação | Bottom Tabs com 5 telas |
-| ✅ Consumo de API | NASA NeoWs + APOD + DONKI (Axios) |
-| ✅ Persistência Local | AsyncStorage (favoritos + settings) |
-| ✅ Interface UI/UX | Dark/Light mode, cards animados, badges |
-| ✅ Funcionalidades | Dashboard, listagem, filtros, busca, favoritos |
-| ✅ Código e Boas Práticas | Hooks, Context, Service Layer, formatters |
-| ✅ Criatividade | Tema espacial MEND com dados NASA reais |
+> Checklist dos requisitos técnicos exigidos no enunciado da Global Solution e **onde cada um está implementado** neste projeto.
+
+| Requisito | Status | Onde está |
+|-----------|:------:|-----------|
+| React Native + Expo | ✅ | `App.tsx`, `package.json` (Expo + React Native 0.76) |
+| TypeScript | ✅ | 100% do código em `.ts/.tsx` · `tsc --noEmit` sem erros |
+| Navegação (React Navigation) | ✅ | `src/navigation/AppNavigator.tsx` — Bottom Tabs + Native Stack |
+| Consumo de API externa | ✅ | `src/services/nasaApi.ts` (NASA NeoWs via **Axios**) + `src/hooks/useDebris.ts` |
+| Persistência local (AsyncStorage) | ✅ | `src/storage/favoritesStorage.ts` e `src/storage/settingsStorage.ts` |
+| Componentização e arquitetura | ✅ | `src/` em 10 módulos (components, screens, services, hooks, contexts, storage, types, theme, navigation, utils) |
+| Interface funcional + Dark Mode | ✅ | `src/contexts/ThemeContext.tsx` (claro padrão + toggle) · 5 telas |
+| Execução Android / iOS / Web | ✅ | `package.json` → `npm run android` / `ios` / `web` (react-native-web) |
+| README completo com instruções | ✅ | Este documento |
+| Equipe (até 5, nome + RM) | ⬜ | Ver seção [Integrantes](#-integrantes) — *preencher* |
+
+---
+
+## 🏆 Critérios de Avaliação — Prova de Preenchimento
+
+> Tabela oficial de avaliação (peso total **10,0**) com a **evidência concreta** de atendimento de cada critério.
+
+| # | Critério | Peso | Status | Como atendemos / Evidência no código |
+|---|----------|:----:|:------:|--------------------------------------|
+| 1 | **Estrutura e Organização** | 1,0 | ✅ | Arquitetura em camadas dentro de `src/`: `components/`, `screens/`, `navigation/`, `services/`, `hooks/`, `contexts/`, `storage/`, `types/`, `theme/`, `utils/`. Separação clara de responsabilidades. |
+| 2 | **React Native + TypeScript** | 1,0 | ✅ | 100% tipado (interfaces centrais em `src/types/index.ts`). Componentes reutilizáveis: `StatCard`, `DebrisCard`, `MissionCard`, `AppHeader`, `MonthlyChart`. Hooks e props tipadas. |
+| 3 | **Navegação** | 0,5 | ✅ | `React Navigation` (Bottom Tabs + Native Stack) em `src/navigation/AppNavigator.tsx`, conectando 5 telas (Início, Rastreamento, Missões, Favoritos, Configurações). |
+| 4 | **Consumo de API** | 1,5 | ✅ | Integração com a **NASA NeoWs API** via **Axios** (`src/services/nasaApi.ts`), tratada por hook customizado com loading/erro/refresh (`src/hooks/useDebris.ts`). |
+| 5 | **Persistência Local** | 1,0 | ✅ | **AsyncStorage** persistindo favoritos (`favoritesStorage.ts`) e configurações do usuário (`settingsStorage.ts`) entre sessões. |
+| 6 | **Interface (UI/UX)** | 2,0 | ✅ | Identidade aeroespacial (ref. ClearSpace): **Light mode padrão + Dark mode**, header/menu laranja, fontes JetBrains Mono (telemetria) + Space Grotesk (títulos), gráfico SVG **responsivo** (`MonthlyChart`), cards, badges e estados de risco. Responsivo em Android/iOS/Web. |
+| 7 | **Funcionalidades** | 1,5 | ✅ | Dashboard com estatísticas, listagem de objetos, **busca**, **filtros** por risco, **ordenação**, sistema de **favoritos**, missões com progresso e gráfico de desempenho mensal. |
+| 8 | **Código e Boas Práticas** | 0,5 | ✅ | Service Layer, Context API, hooks customizados, utilitários de formatação (`utils/formatters.ts`), tipagem central e nomes semânticos. |
+| 9 | **Criatividade e Inovação** | 1,0 | ✅ | Conceito **MEND** (laser de ablação + garras de captura) com dados **reais da NASA**, narrativa de mercado (Mend Credits) e alinhamento aos **ODS da ONU**. |
+| | **TOTAL** | **10,0** | ✅ | Todos os critérios atendidos com evidência rastreável. |
+
+---
+
+## 📸 Demonstração
+
+> Espaço reservado para os visuais do app (exigência de README com instruções **e visuais**).
+
+| Início | Rastreamento | Missões | Configurações |
+|:------:|:------------:|:-------:|:-------------:|
+| _(print aqui)_ | _(print aqui)_ | _(print aqui)_ | _(print aqui)_ |
+
+🎥 **Pitch / demo em vídeo:** [assista aqui](LINK-DO-PITCH-AQUI)
 
 ---
 

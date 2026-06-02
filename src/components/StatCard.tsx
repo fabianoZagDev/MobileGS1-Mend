@@ -20,8 +20,9 @@ export function StatCard({ label, value, icon, accent, subtitle }: Props) {
 
   return (
     <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-      <View style={[styles.iconWrap, { backgroundColor: tint + '1f' }]}>
-        <Ionicons name={icon} size={18} color={tint} />
+      <View style={styles.iconRow}>
+        <View style={[styles.accentBar, { backgroundColor: tint }]} />
+        <Ionicons name={icon} size={20} color={tint} />
       </View>
       <Text style={[styles.value, { color: colors.text }]}>{value}</Text>
       <Text style={[styles.label, { color: colors.textSecondary }]}>{label}</Text>
@@ -41,13 +42,16 @@ const styles = StyleSheet.create({
     minWidth: 100,
     margin: 5,
   },
-  iconWrap: {
-    width: 34,
-    height: 34,
-    borderRadius: 8,
+  iconRow: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
     marginBottom: 12,
+  },
+  accentBar: {
+    width: 3,
+    height: 18,
+    borderRadius: 2,
+    marginRight: 9,
   },
   value: { ...typography.monoLarge, marginBottom: 3 },
   label: { ...typography.caption },

@@ -7,7 +7,7 @@ import { useDebris } from '../hooks/useDebris';
 import { StatCard } from '../components/StatCard';
 import { MissionCard } from '../components/MissionCard';
 import { LoadingScreen } from '../components/LoadingScreen';
-import { Logo } from '../components/Logo';
+import { AppHeader } from '../components/AppHeader';
 import { MonthlyChart } from '../components/MonthlyChart';
 import { getMendMissions } from '../services/debrisService';
 import { formatNumber } from '../utils/formatters';
@@ -24,14 +24,8 @@ export function HomeScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
-      {/* Header laranja */}
-      <View style={[styles.headerBar, { backgroundColor: colors.header }]}>
-        <Text style={[styles.headerTitle, { color: colors.onPrimary }]}>Painel Orbital</Text>
-        <View style={[styles.statusBadge, { backgroundColor: 'rgba(255,255,255,0.18)', borderColor: 'rgba(255,255,255,0.45)' }]}>
-          <View style={[styles.statusDot, { backgroundColor: '#fff' }]} />
-          <Text style={[styles.statusText, { color: '#fff' }]}>SISTEMA ONLINE</Text>
-        </View>
-      </View>
+      {/* Header laranja com logo + frase */}
+      <AppHeader />
 
       <ScrollView
         style={{ backgroundColor: colors.background }}
@@ -39,12 +33,13 @@ export function HomeScreen() {
         showsVerticalScrollIndicator={false}
         refreshControl={<RefreshControl refreshing={loading} onRefresh={refresh} tintColor={colors.primary} />}
       >
-        {/* Hero com logo */}
-        <View style={[styles.hero, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-          <Logo height={34} />
-          <Text style={[styles.tagline, { color: colors.textSecondary }]}>
-            O espaço pertence à eternidade. O lixo, não.
-          </Text>
+        {/* Título da página (fora do header, sem card) */}
+        <View style={styles.pageTitleRow}>
+          <Text style={[styles.headerTitle, { color: colors.text }]}>Painel Orbital</Text>
+          <View style={[styles.statusBadge, { backgroundColor: colors.primary + '14', borderColor: colors.primary + '55' }]}>
+            <View style={[styles.statusDot, { backgroundColor: colors.success }]} />
+            <Text style={[styles.statusText, { color: colors.primary }]}>SISTEMA ONLINE</Text>
+          </View>
         </View>
 
         {error && (
@@ -127,14 +122,14 @@ function AboutStat({ label, value, colors }: { label: string; value: string; col
 const styles = StyleSheet.create({
   container: { flex: 1 },
   scroll: { paddingHorizontal: 20, paddingTop: 20, paddingBottom: 40 },
-  headerBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
+  headerBar: { paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
   headerTitle: { ...typography.h2 },
-  hero: { borderWidth: 1, borderRadius: 10, padding: 20, alignItems: 'flex-start' },
+  pageTitleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 },
   statusBadge: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 6, borderWidth: 1 },
   statusDot: { width: 7, height: 7, borderRadius: 4, marginRight: 6 },
   statusText: { ...typography.label },
-  tagline: { ...typography.bodySmall, fontStyle: 'italic', marginTop: 12 },
-  sectionTitle: { ...typography.label, marginTop: 30, marginBottom: 14 },
+  tagline: { ...typography.bodySmall, fontStyle: 'italic', marginTop: 10, opacity: 0.9 },
+  sectionTitle: { ...typography.label, marginTop: 26, marginBottom: 14 },
   statsRow: { flexDirection: 'row' },
   errorBox: { borderWidth: 1, borderRadius: 8, padding: 14, marginTop: 16 },
   errorText: { ...typography.body, marginBottom: 6 },

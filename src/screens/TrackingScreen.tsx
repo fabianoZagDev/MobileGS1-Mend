@@ -6,6 +6,7 @@ import { useTheme } from '../contexts/ThemeContext';
 import { useDebris } from '../hooks/useDebris';
 import { DebrisCard } from '../components/DebrisCard';
 import { LoadingScreen } from '../components/LoadingScreen';
+import { AppHeader } from '../components/AppHeader';
 import { typography } from '../theme/typography';
 
 type FilterRisk = 'all' | 'critical' | 'high' | 'medium' | 'low';
@@ -63,12 +64,13 @@ export function TrackingScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
-      <View style={[styles.header, { backgroundColor: colors.header }]}>
-        <Text style={[styles.title, { color: colors.onPrimary }]}>Rastreamento</Text>
-        <Text style={[styles.count, { color: 'rgba(255,255,255,0.85)' }]}>{filtered.length} objetos</Text>
-      </View>
+      <AppHeader />
 
       <View style={[styles.body, { backgroundColor: colors.background }]}>
+      <View style={styles.pageTitleRow}>
+        <Text style={[styles.title, { color: colors.text }]}>Rastreamento</Text>
+        <Text style={[styles.count, { color: colors.textMuted }]}>{filtered.length} objetos</Text>
+      </View>
       <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
         <Ionicons name="search" size={18} color={colors.textMuted} />
         <TextInput
@@ -142,10 +144,10 @@ export function TrackingScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   body: { flex: 1 },
-  header: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
+  pageTitleRow: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 20, paddingBottom: 4 },
   title: { ...typography.h2 },
   count: { ...typography.monoSmall, marginBottom: 3 },
-  searchBox: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 8, marginHorizontal: 20, paddingHorizontal: 14, paddingVertical: 12, marginTop: 18, marginBottom: 16 },
+  searchBox: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 8, marginHorizontal: 20, paddingHorizontal: 14, paddingVertical: 12, marginTop: 14, marginBottom: 16 },
   searchInput: { flex: 1, ...typography.body, marginLeft: 8 },
   filterRow: { flexDirection: 'row', paddingHorizontal: 16, marginBottom: 12, flexWrap: 'wrap' },
   filterChip: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 8, paddingHorizontal: 13, paddingVertical: 7, margin: 4 },

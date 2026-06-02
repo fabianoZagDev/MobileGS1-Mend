@@ -6,7 +6,7 @@ import { useTheme } from '../contexts/ThemeContext';
 import { AppSettings } from '../types';
 import { loadSettings, saveSettings } from '../storage/settingsStorage';
 import { typography } from '../theme/typography';
-import { Logo } from '../components/Logo';
+import { AppHeader } from '../components/AppHeader';
 
 type IoniconName = keyof typeof Ionicons.glyphMap;
 
@@ -32,13 +32,14 @@ export function SettingsScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
-      <View style={[styles.header, { backgroundColor: colors.header }]}>
-        <Text style={[styles.title, { color: colors.onPrimary }]}>Configurações</Text>
-      </View>
+      <AppHeader />
 
       <ScrollView style={{ backgroundColor: colors.background }} contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+        <View style={styles.pageTitleRow}>
+          <Text style={[styles.title, { color: colors.text }]}>Configurações</Text>
+        </View>
         <View style={[styles.profileCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-          <Logo height={32} />
+          <Text style={[styles.profileBrand, { color: colors.text }]}>MEND</Text>
           <Text style={[styles.profileVersion, { color: colors.textMuted }]}>
             Orbital Debris Removal System · v1.0
           </Text>
@@ -148,8 +149,9 @@ function SettingRow({
 }) {
   return (
     <View style={[styles.settingRow, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
-      <View style={[styles.settingIcon, { backgroundColor: colors.primary + '1a' }]}>
-        <Ionicons name={icon} size={18} color={colors.primary} />
+      <View style={styles.settingIcon}>
+        <View style={[styles.settingAccentBar, { backgroundColor: colors.primary }]} />
+        <Ionicons name={icon} size={20} color={colors.primary} />
       </View>
       <View style={styles.settingInfo}>
         <Text style={[styles.settingLabel, { color: colors.text }]}>{label}</Text>
@@ -171,14 +173,16 @@ function AboutRow({ label, value, colors, last }: { label: string; value: string
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  header: { paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
+  pageTitleRow: { paddingBottom: 16 },
   title: { ...typography.h2 },
   scroll: { paddingHorizontal: 20, paddingTop: 20, paddingBottom: 48 },
   profileCard: { borderWidth: 1, borderRadius: 10, padding: 20, marginBottom: 26, alignItems: 'flex-start' },
-  profileVersion: { ...typography.monoSmall, fontSize: 10, marginTop: 12, letterSpacing: 0.5 },
+  profileBrand: { ...typography.h3, letterSpacing: 2 },
+  profileVersion: { ...typography.monoSmall, fontSize: 10, marginTop: 8, letterSpacing: 0.5 },
   sectionTitle: { ...typography.label, marginBottom: 12, marginTop: 26 },
   settingRow: { flexDirection: 'row', alignItems: 'center', borderRadius: 8, borderWidth: 1, padding: 15, marginBottom: 10 },
-  settingIcon: { width: 36, height: 36, borderRadius: 8, alignItems: 'center', justifyContent: 'center', marginRight: 13 },
+  settingIcon: { flexDirection: 'row', alignItems: 'center', marginRight: 13 },
+  settingAccentBar: { width: 3, height: 20, borderRadius: 2, marginRight: 10 },
   settingInfo: { flex: 1 },
   settingLabel: { ...typography.h4, marginBottom: 2 },
   settingDesc: { ...typography.caption },
