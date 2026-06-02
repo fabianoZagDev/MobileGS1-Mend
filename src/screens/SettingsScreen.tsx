@@ -13,7 +13,7 @@ type IoniconName = keyof typeof Ionicons.glyphMap;
 export function SettingsScreen() {
   const { colors, isDark, toggleTheme } = useTheme();
   const [settings, setSettings] = useState<AppSettings>({
-    darkMode: true,
+    darkMode: false,
     notifications: true,
     autoRefresh: true,
     refreshInterval: 30,
@@ -31,12 +31,12 @@ export function SettingsScreen() {
   };
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={['top']}>
-      <View style={styles.header}>
-        <Text style={[styles.title, { color: colors.text }]}>Configurações</Text>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
+      <View style={[styles.header, { backgroundColor: colors.header }]}>
+        <Text style={[styles.title, { color: colors.onPrimary }]}>Configurações</Text>
       </View>
 
-      <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+      <ScrollView style={{ backgroundColor: colors.background }} contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
         <View style={[styles.profileCard, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
           <Logo height={32} />
           <Text style={[styles.profileVersion, { color: colors.textMuted }]}>
@@ -171,24 +171,24 @@ function AboutRow({ label, value, colors, last }: { label: string; value: string
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  header: { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 14 },
+  header: { paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
   title: { ...typography.h2 },
-  scroll: { paddingHorizontal: 16, paddingBottom: 40 },
-  profileCard: { borderWidth: 1, borderRadius: 18, padding: 20, marginBottom: 16, alignItems: 'flex-start' },
+  scroll: { paddingHorizontal: 20, paddingTop: 20, paddingBottom: 48 },
+  profileCard: { borderWidth: 1, borderRadius: 10, padding: 20, marginBottom: 26, alignItems: 'flex-start' },
   profileVersion: { ...typography.monoSmall, fontSize: 10, marginTop: 12, letterSpacing: 0.5 },
-  sectionTitle: { ...typography.label, marginBottom: 10, marginTop: 18 },
-  settingRow: { flexDirection: 'row', alignItems: 'center', borderRadius: 16, borderWidth: 1, padding: 14, marginBottom: 8 },
-  settingIcon: { width: 36, height: 36, borderRadius: 11, alignItems: 'center', justifyContent: 'center', marginRight: 13 },
+  sectionTitle: { ...typography.label, marginBottom: 12, marginTop: 26 },
+  settingRow: { flexDirection: 'row', alignItems: 'center', borderRadius: 8, borderWidth: 1, padding: 15, marginBottom: 10 },
+  settingIcon: { width: 36, height: 36, borderRadius: 8, alignItems: 'center', justifyContent: 'center', marginRight: 13 },
   settingInfo: { flex: 1 },
   settingLabel: { ...typography.h4, marginBottom: 2 },
   settingDesc: { ...typography.caption },
-  unitRow: { flexDirection: 'row', borderRadius: 16, borderWidth: 1, overflow: 'hidden', marginBottom: 8 },
+  unitRow: { flexDirection: 'row', borderRadius: 8, borderWidth: 1, overflow: 'hidden', marginBottom: 8 },
   unitBtn: { flex: 1, padding: 14, alignItems: 'center' },
-  aboutBox: { borderRadius: 16, borderWidth: 1, marginBottom: 8 },
-  aboutRow: { flexDirection: 'row', justifyContent: 'space-between', padding: 14 },
+  aboutBox: { borderRadius: 8, borderWidth: 1, marginBottom: 8 },
+  aboutRow: { flexDirection: 'row', justifyContent: 'space-between', padding: 15 },
   aboutLabel: { ...typography.body },
   aboutValue: { ...typography.monoSmall, fontSize: 12 },
-  teamCard: { borderWidth: 1, borderRadius: 16, padding: 18, marginTop: 8, alignItems: 'center' },
+  teamCard: { borderWidth: 1, borderRadius: 10, padding: 20, marginTop: 16, alignItems: 'center' },
   teamTitle: { ...typography.label, marginBottom: 8 },
   teamText: { ...typography.body, textAlign: 'center', lineHeight: 22 },
 });

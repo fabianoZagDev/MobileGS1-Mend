@@ -18,14 +18,16 @@ export const darkColors = {
   border: '#222222',
   card: '#111111',
   cardBorder: '#2a2a2a',
-  tabBar: '#000000',
-  statusBar: '#000000',
+  tabBar: '#ff4401',
+  header: '#ff4401',
+  onPrimary: '#ffffff',
+  statusBar: '#ff4401',
 };
 
 export const lightColors = {
-  background: '#efeeea',
-  surface: '#ffffff',
-  surfaceAlt: '#e5e4e0',
+  background: '#ffffff',
+  surface: '#f5f5f3',
+  surfaceAlt: '#ececea',
   primary: '#ff4401',
   primaryDark: '#cc3600',
   secondary: '#000000',
@@ -36,11 +38,13 @@ export const lightColors = {
   text: '#000000',
   textSecondary: '#333333',
   textMuted: '#888888',
-  border: '#d0cfc9',
+  border: '#d8d7d2',
   card: '#ffffff',
-  cardBorder: '#ffd0c0',
-  tabBar: '#ffffff',
-  statusBar: '#efeeea',
+  cardBorder: '#e4e3de',
+  tabBar: '#ff4401',
+  header: '#ff4401',
+  onPrimary: '#ffffff',
+  statusBar: '#ff4401',
 };
 
 export type ColorScheme = typeof darkColors;

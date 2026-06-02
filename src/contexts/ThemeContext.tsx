@@ -9,13 +9,13 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  isDark: true,
-  colors: darkColors,
+  isDark: false,
+  colors: lightColors,
   toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     loadSettings().then((s) => {
@@ -40,7 +40,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 export const useTheme = () => useContext(ThemeContext);
 
 const defaultSettings = {
-  darkMode: true,
+  darkMode: false,
   notifications: true,
   autoRefresh: true,
   refreshInterval: 30,

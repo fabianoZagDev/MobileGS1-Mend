@@ -1,5 +1,5 @@
-import { OrbitalObject, DashboardStats, MendMission } from '../types';
-import { NasaNeoObject, fetchNeoFeed } from './nasaApi';
+import { OrbitalObject, DashboardStats, MendMission, NasaNeoObject } from '../types';
+import { fetchNeoFeed } from './nasaApi';
 
 const OBJECT_TYPES: OrbitalObject['type'][] = ['debris', 'satellite', 'fragment', 'rocket_body'];
 const COUNTRIES = ['USA', 'RUS', 'CHN', 'ESA', 'JPN', 'IND', 'UK', 'FRA'];

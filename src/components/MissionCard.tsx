@@ -76,12 +76,12 @@ export function MissionCard({ mission }: Props) {
 }
 
 const styles = StyleSheet.create({
-  card: { borderRadius: 18, borderWidth: 1, padding: 16, marginBottom: 10 },
+  card: { borderRadius: 10, borderWidth: 1, padding: 16, marginBottom: 12 },
   header: { flexDirection: 'row', alignItems: 'center', marginBottom: 14 },
   iconWrap: {
     width: 40,
     height: 40,
-    borderRadius: 12,
+    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 12,
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   info: { flex: 1, marginRight: 8 },
   target: { ...typography.h4, marginBottom: 2 },
   method: { ...typography.monoSmall },
-  statusBadge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 10 },
+  statusBadge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 6 },
   statusText: { ...typography.label },
   footer: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   date: { ...typography.monoSmall },

@@ -46,14 +46,14 @@ export function AppNavigator() {
           headerShown: false,
           tabBarStyle: {
             backgroundColor: colors.tabBar,
-            borderTopColor: colors.border,
-            borderTopWidth: 1,
-            paddingTop: 8,
-            paddingBottom: 8,
-            height: 64,
+            borderTopColor: 'transparent',
+            borderTopWidth: 0,
+            paddingTop: 10,
+            paddingBottom: 10,
+            height: 66,
           },
-          tabBarActiveTintColor: colors.primary,
-          tabBarInactiveTintColor: colors.textMuted,
+          tabBarActiveTintColor: '#ffffff',
+          tabBarInactiveTintColor: 'rgba(255,255,255,0.6)',
           tabBarLabelStyle: { fontSize: 10, fontFamily: fonts.bodyMedium, marginTop: 2 },
           tabBarIcon: ({ focused, color, size }) => {
             const icon = ICONS[route.name];
@@ -76,7 +76,7 @@ export function AppNavigator() {
           options={{
             tabBarLabel: 'Favoritos',
             tabBarBadge: favorites.length > 0 ? favorites.length : undefined,
-            tabBarBadgeStyle: { backgroundColor: colors.primary, fontSize: 10 },
+            tabBarBadgeStyle: { backgroundColor: '#ffffff', color: colors.primary, fontSize: 10 },
           }}
         />
         <Tab.Screen name="Settings" component={SettingsScreen} options={{ tabBarLabel: 'Config' }} />

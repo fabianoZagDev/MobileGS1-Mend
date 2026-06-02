@@ -10,10 +10,10 @@ import { AppNavigator } from './src/navigation/AppNavigator';
 import { LoadingScreen } from './src/components/LoadingScreen';
 
 function Root() {
-  const { isDark, colors } = useTheme();
+  const { colors } = useTheme();
   return (
     <>
-      <StatusBar style={isDark ? 'light' : 'dark'} backgroundColor={colors.statusBar} />
+      <StatusBar style="light" backgroundColor={colors.statusBar} />
       <AppNavigator />
     </>
   );
@@ -37,7 +37,7 @@ export default function App() {
         {fontsLoaded ? (
           <Root />
         ) : (
-          <View style={{ flex: 1, backgroundColor: '#000000' }} />
+          <View style={{ flex: 1, backgroundColor: '#ffffff' }} />
         )}
       </FavoritesProvider>
     </ThemeProvider>

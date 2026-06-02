@@ -103,9 +103,9 @@ const chipStyles = StyleSheet.create({
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 18,
+    borderRadius: 10,
     borderWidth: 1,
-    marginBottom: 10,
+    marginBottom: 12,
     flexDirection: 'row',
     overflow: 'hidden',
   },
@@ -114,11 +114,11 @@ const styles = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 },
   nameRow: { flexDirection: 'row', alignItems: 'center', flex: 1, marginRight: 8 },
   name: { ...typography.h4, flex: 0, marginRight: 8 },
-  typeBadge: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 8 },
+  typeBadge: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 5 },
   typeText: { ...typography.monoSmall, fontSize: 10 },
   stats: { flexDirection: 'row', marginBottom: 14 },
   footer: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  riskBadge: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 9, paddingVertical: 4, borderRadius: 8 },
+  riskBadge: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 9, paddingVertical: 4, borderRadius: 5 },
   riskDot: { width: 6, height: 6, borderRadius: 3, marginRight: 5 },
   riskText: { ...typography.label },
   meta: { ...typography.monoSmall },

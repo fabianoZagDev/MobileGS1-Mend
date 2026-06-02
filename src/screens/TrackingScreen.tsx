@@ -62,12 +62,13 @@ export function TrackingScreen() {
   if (loading) return <LoadingScreen message="Rastreando objetos orbitais" />;
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={['top']}>
-      <View style={styles.header}>
-        <Text style={[styles.title, { color: colors.text }]}>Rastreamento</Text>
-        <Text style={[styles.count, { color: colors.textMuted }]}>{filtered.length} objetos</Text>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
+      <View style={[styles.header, { backgroundColor: colors.header }]}>
+        <Text style={[styles.title, { color: colors.onPrimary }]}>Rastreamento</Text>
+        <Text style={[styles.count, { color: 'rgba(255,255,255,0.85)' }]}>{filtered.length} objetos</Text>
       </View>
 
+      <View style={[styles.body, { backgroundColor: colors.background }]}>
       <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
         <Ionicons name="search" size={18} color={colors.textMuted} />
         <TextInput
@@ -133,26 +134,28 @@ export function TrackingScreen() {
           </View>
         }
       />
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  header: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', paddingHorizontal: 16, paddingTop: 8, paddingBottom: 14 },
+  body: { flex: 1 },
+  header: { flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
   title: { ...typography.h2 },
   count: { ...typography.monoSmall, marginBottom: 3 },
-  searchBox: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 14, marginHorizontal: 16, paddingHorizontal: 14, paddingVertical: 11, marginBottom: 12 },
+  searchBox: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 8, marginHorizontal: 20, paddingHorizontal: 14, paddingVertical: 12, marginTop: 18, marginBottom: 16 },
   searchInput: { flex: 1, ...typography.body, marginLeft: 8 },
-  filterRow: { flexDirection: 'row', paddingHorizontal: 12, marginBottom: 10, flexWrap: 'wrap' },
-  filterChip: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 20, paddingHorizontal: 13, paddingVertical: 6, margin: 4 },
+  filterRow: { flexDirection: 'row', paddingHorizontal: 16, marginBottom: 12, flexWrap: 'wrap' },
+  filterChip: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 8, paddingHorizontal: 13, paddingVertical: 7, margin: 4 },
   filterDot: { width: 7, height: 7, borderRadius: 4, marginRight: 6 },
   filterText: { ...typography.bodySmall, fontFamily: typography.bodyMedium.fontFamily },
-  sortRow: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, marginBottom: 10 },
+  sortRow: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, marginBottom: 14 },
   sortLabel: { ...typography.caption, marginRight: 8, textTransform: 'uppercase', letterSpacing: 1 },
-  sortChip: { paddingHorizontal: 11, paddingVertical: 5, borderRadius: 8, marginRight: 4 },
+  sortChip: { paddingHorizontal: 11, paddingVertical: 6, borderRadius: 6, marginRight: 4 },
   sortText: { ...typography.bodySmall, fontFamily: typography.bodyMedium.fontFamily },
-  list: { paddingHorizontal: 16, paddingBottom: 32 },
+  list: { paddingHorizontal: 20, paddingBottom: 36 },
   empty: { alignItems: 'center', paddingTop: 60 },
   emptyText: { ...typography.body, marginTop: 14 },
 });

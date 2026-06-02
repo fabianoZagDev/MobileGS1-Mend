@@ -8,6 +8,7 @@ import { StatCard } from '../components/StatCard';
 import { MissionCard } from '../components/MissionCard';
 import { LoadingScreen } from '../components/LoadingScreen';
 import { Logo } from '../components/Logo';
+import { MonthlyChart } from '../components/MonthlyChart';
 import { getMendMissions } from '../services/debrisService';
 import { formatNumber } from '../utils/formatters';
 import { typography } from '../theme/typography';
@@ -22,24 +23,29 @@ export function HomeScreen() {
   const elevated = objects.filter((o) => o.riskLevel === 'critical' || o.riskLevel === 'high').length;
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={['top']}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
+      {/* Header laranja */}
+      <View style={[styles.headerBar, { backgroundColor: colors.header }]}>
+        <Text style={[styles.headerTitle, { color: colors.onPrimary }]}>Painel Orbital</Text>
+        <View style={[styles.statusBadge, { backgroundColor: 'rgba(255,255,255,0.18)', borderColor: 'rgba(255,255,255,0.45)' }]}>
+          <View style={[styles.statusDot, { backgroundColor: '#fff' }]} />
+          <Text style={[styles.statusText, { color: '#fff' }]}>SISTEMA ONLINE</Text>
+        </View>
+      </View>
+
       <ScrollView
+        style={{ backgroundColor: colors.background }}
         contentContainerStyle={styles.scroll}
         showsVerticalScrollIndicator={false}
         refreshControl={<RefreshControl refreshing={loading} onRefresh={refresh} tintColor={colors.primary} />}
       >
-        {/* Header */}
-        <View style={styles.header}>
-          <Logo height={30} />
-          <View style={[styles.statusBadge, { backgroundColor: colors.primary + '1a', borderColor: colors.primary + '40' }]}>
-            <View style={[styles.statusDot, { backgroundColor: colors.primary }]} />
-            <Text style={[styles.statusText, { color: colors.primary }]}>SISTEMA ONLINE</Text>
-          </View>
+        {/* Hero com logo */}
+        <View style={[styles.hero, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
+          <Logo height={34} />
+          <Text style={[styles.tagline, { color: colors.textSecondary }]}>
+            O espaço pertence à eternidade. O lixo, não.
+          </Text>
         </View>
-
-        <Text style={[styles.tagline, { color: colors.textSecondary }]}>
-          O espaço pertence à eternidade. O lixo, não.
-        </Text>
 
         {error && (
           <View style={[styles.errorBox, { backgroundColor: colors.danger + '1a', borderColor: colors.danger }]}>
@@ -68,6 +74,10 @@ export function HomeScreen() {
             </View>
           </>
         )}
+
+        {/* Gráfico mensal */}
+        <Text style={[styles.sectionTitle, { color: colors.textMuted }]}>DESEMPENHO MENSAL · 2026</Text>
+        <MonthlyChart />
 
         {/* Alert */}
         <View style={[styles.alertBanner, { backgroundColor: colors.primary + '12', borderColor: colors.primary + '55' }]}>
@@ -116,22 +126,24 @@ function AboutStat({ label, value, colors }: { label: string; value: string; col
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  scroll: { padding: 16, paddingBottom: 32 },
-  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 },
-  statusBadge: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 20, borderWidth: 1 },
+  scroll: { paddingHorizontal: 20, paddingTop: 20, paddingBottom: 40 },
+  headerBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
+  headerTitle: { ...typography.h2 },
+  hero: { borderWidth: 1, borderRadius: 10, padding: 20, alignItems: 'flex-start' },
+  statusBadge: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 6, borderWidth: 1 },
   statusDot: { width: 7, height: 7, borderRadius: 4, marginRight: 6 },
   statusText: { ...typography.label },
-  tagline: { ...typography.bodySmall, fontStyle: 'italic', marginBottom: 8 },
-  sectionTitle: { ...typography.label, marginTop: 22, marginBottom: 12 },
+  tagline: { ...typography.bodySmall, fontStyle: 'italic', marginTop: 12 },
+  sectionTitle: { ...typography.label, marginTop: 30, marginBottom: 14 },
   statsRow: { flexDirection: 'row' },
-  errorBox: { borderWidth: 1, borderRadius: 14, padding: 14, marginTop: 12 },
+  errorBox: { borderWidth: 1, borderRadius: 8, padding: 14, marginTop: 16 },
   errorText: { ...typography.body, marginBottom: 6 },
   retryText: { ...typography.bodyMedium },
-  alertBanner: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 16, padding: 16, marginTop: 18 },
+  alertBanner: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 8, padding: 16, marginTop: 24 },
   alertInfo: { flex: 1, marginLeft: 12 },
   alertTitle: { ...typography.h4, marginBottom: 3 },
   alertDesc: { ...typography.bodySmall },
-  aboutCard: { borderRadius: 20, borderWidth: 1, padding: 20, marginTop: 12 },
+  aboutCard: { borderRadius: 10, borderWidth: 1, padding: 20, marginTop: 16 },
   aboutLabel: { ...typography.label, marginBottom: 10 },
   aboutText: { ...typography.body, lineHeight: 21 },
   aboutDivider: { height: 1, marginVertical: 18 },

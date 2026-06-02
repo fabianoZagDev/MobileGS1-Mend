@@ -31,12 +31,13 @@ export function MissionsScreen() {
   };
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={['top']}>
-      <View style={styles.header}>
-        <Text style={[styles.title, { color: colors.text }]}>Missões</Text>
-        <Text style={[styles.subtitle, { color: colors.textMuted }]}>Operações de remoção orbital</Text>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.header }]} edges={['top']}>
+      <View style={[styles.header, { backgroundColor: colors.header }]}>
+        <Text style={[styles.title, { color: colors.onPrimary }]}>Missões</Text>
+        <Text style={[styles.subtitle, { color: 'rgba(255,255,255,0.8)' }]}>Operações de remoção orbital</Text>
       </View>
 
+      <View style={[styles.body, { backgroundColor: colors.background }]}>
       <View style={[styles.statsBar, { backgroundColor: colors.surface, borderColor: colors.border }]}>
         <MiniStat label="Total" value={stats.total.toString()} colors={colors} />
         <View style={[styles.divider, { backgroundColor: colors.border }]} />
@@ -76,6 +77,7 @@ export function MissionsScreen() {
           </View>
         }
       />
+      </View>
     </SafeAreaView>
   );
 }
@@ -91,16 +93,17 @@ function MiniStat({ label, value, colors, accent }: { label: string; value: stri
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  header: { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 14 },
+  body: { flex: 1 },
+  header: { paddingHorizontal: 20, paddingTop: 10, paddingBottom: 18 },
   title: { ...typography.h2 },
-  subtitle: { ...typography.bodySmall, marginTop: 2 },
-  statsBar: { flexDirection: 'row', marginHorizontal: 16, borderRadius: 16, borderWidth: 1, paddingVertical: 16, marginBottom: 14 },
+  subtitle: { ...typography.bodySmall, marginTop: 3 },
+  statsBar: { flexDirection: 'row', marginHorizontal: 20, borderRadius: 8, borderWidth: 1, paddingVertical: 18, marginTop: 20, marginBottom: 20 },
   divider: { width: 1, marginVertical: 4 },
-  filterRow: { flexDirection: 'row', paddingHorizontal: 12, marginBottom: 12, flexWrap: 'wrap' },
-  filterChip: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 20, paddingHorizontal: 14, paddingVertical: 7, margin: 4 },
+  filterRow: { flexDirection: 'row', paddingHorizontal: 16, marginBottom: 16, flexWrap: 'wrap' },
+  filterChip: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 8, paddingHorizontal: 14, paddingVertical: 8, margin: 4 },
   filterDot: { width: 7, height: 7, borderRadius: 4, marginRight: 6 },
   filterText: { ...typography.bodySmall, fontFamily: typography.bodyMedium.fontFamily },
-  list: { paddingHorizontal: 16, paddingBottom: 32 },
+  list: { paddingHorizontal: 20, paddingBottom: 36 },
   empty: { alignItems: 'center', paddingTop: 60 },
   emptyText: { ...typography.body, marginTop: 14 },
 });

@@ -35,7 +35,7 @@ export function StatCard({ label, value, icon, accent, subtitle }: Props) {
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    borderRadius: 18,
+    borderRadius: 10,
     borderWidth: 1,
     padding: 16,
     minWidth: 100,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   iconWrap: {
     width: 34,
     height: 34,
-    borderRadius: 10,
+    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,

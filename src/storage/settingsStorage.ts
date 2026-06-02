@@ -4,7 +4,7 @@ import { AppSettings } from '../types';
 const KEY = '@mend:settings';
 
 const defaults: AppSettings = {
-  darkMode: true,
+  darkMode: false,
   notifications: true,
   autoRefresh: true,
   refreshInterval: 30,
