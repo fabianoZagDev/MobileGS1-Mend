@@ -8,7 +8,7 @@ Aplicativo mobile desenvolvido em React Native + Expo SDK 55 + TypeScript para a
 
 ## 🎬 Antes de tudo: assista ao nosso Pitch
 
-> **2 minutos que mudam a forma como você olha pro céu.** 🌌
+> **Menos de 6 minutos que mudam a forma como você olha pro céu.** 🌌
 >
 > Toda noite, 130 milhões de fragmentos cruzam a órbita a 28.000 km/h. Nós decidimos fazer algo a respeito — e queremos te mostrar como.
 >
