@@ -37,15 +37,48 @@ function neoToOrbital(neo: NasaNeoObject, date: string): OrbitalObject {
   };
 }
 
-export async function getOrbitalObjects(): Promise<OrbitalObject[]> {
-  const feed = await fetchNeoFeed();
+const FALLBACK_NAMES = [
+  'Cosmos', 'Iridium', 'Fengyun', 'SL-16 R/B', 'Delta IV', 'Ariane', 'NOAA',
+  'Envisat', 'Vespa', 'CZ-3B', 'Atlas Centaur', 'Meteor', 'Kosmos', 'Thor',
+];
+
+// Gera objetos orbitais sintéticos caso a NASA API falhe (ex.: limite da DEMO_KEY).
+function generateFallbackObjects(count = 60): OrbitalObject[] {
   const objects: OrbitalObject[] = [];
-  for (const [date, neos] of Object.entries(feed.near_earth_objects)) {
-    for (const neo of neos) {
-      objects.push(neoToOrbital(neo, date));
-    }
+  for (let i = 0; i < count; i++) {
+    const riskIndex = Math.floor(Math.random() * RISK_LEVELS.length);
+    objects.push({
+      id: `fallback-${i}-${Math.floor(Math.random() * 1e6)}`,
+      name: `${FALLBACK_NAMES[i % FALLBACK_NAMES.length]} ${1000 + Math.floor(Math.random() * 8999)} #${i + 1}`,
+      size: Math.round(Math.random() * 480 + 20),
+      altitude: Math.round(Math.random() * 1500 + 300),
+      velocity: Math.round(Math.random() * 22000 + 6000),
+      type: OBJECT_TYPES[Math.floor(Math.random() * OBJECT_TYPES.length)],
+      riskLevel: RISK_LEVELS[riskIndex],
+      country: COUNTRIES[Math.floor(Math.random() * COUNTRIES.length)],
+      launchYear: Math.floor(Math.random() * 40) + 1980,
+      isFavorite: false,
+    });
   }
-  return objects.slice(0, 60);
+  return objects;
+}
+
+export async function getOrbitalObjects(): Promise<OrbitalObject[]> {
+  try {
+    const feed = await fetchNeoFeed();
+    const objects: OrbitalObject[] = [];
+    for (const [date, neos] of Object.entries(feed.near_earth_objects)) {
+      for (const neo of neos) {
+        objects.push(neoToOrbital(neo, date));
+      }
+    }
+    if (objects.length === 0) return generateFallbackObjects();
+    return objects.slice(0, 60);
+  } catch (e) {
+    // NASA API indisponível ou DEMO_KEY no limite — usa dados sintéticos.
+    console.warn('NASA API indisponível, usando dados sintéticos.', e);
+    return generateFallbackObjects();
+  }
 }
 
 export function getDashboardStats(objects: OrbitalObject[]): DashboardStats {

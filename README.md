@@ -227,11 +227,9 @@ Escaneie o QR code com o app **Expo Go** no seu celular.
 
 ## 📸 Demonstração
 
-> Espaço reservado para os visuais do app (exigência de README com instruções **e visuais**).
-
 | Início | Rastreamento | Missões | Configurações |
 |:------:|:------------:|:-------:|:-------------:|
-| _(print aqui)_ | _(print aqui)_ | _(print aqui)_ | _(print aqui)_ |
+| <img src="assets/prints_tela/inicio.png" width="200"/> | <img src="assets/prints_tela/rastreamento.png" width="200"/> | <img src="assets/prints_tela/missoes.png" width="200"/> | <img src="assets/prints_tela/configuracoes.png" width="200"/> |
 
 🎥 **Pitch / demo em vídeo:** [assista aqui](LINK-DO-PITCH-AQUI)
 
@@ -241,7 +239,11 @@ Escaneie o QR code com o app **Expo Go** no seu celular.
 
 | Nome | RM |
 |------|----|
-| _(adicionar integrantes)_ | RM XXXXX |
+| Fabiano Zague | 555524 |
+| Lorran Sarmento | 558982 |
+| Maria Oliveira | 557478 |
+| Pedro Certo | 556268 |
+| Vinícius Matarelli | 555200 |
 
 ---
 
