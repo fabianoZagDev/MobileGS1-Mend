@@ -6,6 +6,18 @@ Aplicativo mobile desenvolvido em React Native + Expo SDK 55 + TypeScript para a
 
 ---
 
+## 🎬 Antes de tudo: assista ao nosso Pitch
+
+> **2 minutos que mudam a forma como você olha pro céu.** 🌌
+>
+> Toda noite, 130 milhões de fragmentos cruzam a órbita a 28.000 km/h. Nós decidimos fazer algo a respeito — e queremos te mostrar como.
+>
+> ### ▶️ **[CLIQUE AQUI E ASSISTA AO PITCH DA MEND »](LINK-DO-PITCH-AQUI)**
+>
+> *Sem spoilers. Só aperta o play e deixa a gente te levar até a órbita baixa.* 🛰️
+
+---
+
 ## 📱 Sobre o Projeto
 
 O **MEND** é um sistema de remoção de detritos orbitais que combina **laser de ablação** e **garras de captura** para limpar a órbita terrestre baixa (LEO). Este aplicativo mobile é a interface de monitoramento e controle do sistema, consumindo dados reais da **NASA API**.
