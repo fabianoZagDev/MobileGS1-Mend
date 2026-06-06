@@ -12,7 +12,7 @@ Aplicativo mobile desenvolvido em React Native + Expo SDK 55 + TypeScript para a
 >
 > Toda noite, 130 milhões de fragmentos cruzam a órbita a 28.000 km/h. Nós decidimos fazer algo a respeito — e queremos te mostrar como.
 >
-> ### ▶️ **[CLIQUE AQUI E ASSISTA AO PITCH DA MEND »](LINK-DO-PITCH-AQUI)**
+> ### ▶️ **[CLIQUE AQUI E ASSISTA AO PITCH DA MEND »](https://youtu.be/_MjGn6lEQS0)**
 >
 > *Sem spoilers. Só aperta o play e deixa a gente te levar até a órbita baixa.* 🛰️
 
